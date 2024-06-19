@@ -1,0 +1,51 @@
+.main-container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.todo-items-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.todo-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 340px;
+    color:#ffffff;
+    background-color: black;
+    padding:10px;
+    margin:8px;
+    border-radius: 6px;
+}
+
+.todo-task{
+    margin-left:8px;
+    margin-right: 8px;
+}
+
+.todo-task-check{
+    text-decoration: line-through;
+    margin-left:8px;
+    margin-right: 8px;
+}
+
+.check-box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor:pointer;
+}
+
+.trash-button{
+    background-color: transparent;
+    border: none;
+    color:#ffffff;
+    cursor: pointer;
+}
