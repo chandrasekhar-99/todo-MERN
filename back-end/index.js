@@ -10,14 +10,18 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-mongoose.connect("mongodb://127.0.0.1:27017/mine");
+mongoose.connect("mongodb+srv://chanduMongoDB:Mongo%40253@cluster0.phxtg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
 
 app.post('/add',async (req,res)=>{
-    const {task} = req.body;
+    const {task,description,date,status,priority} = req.body;
 
     try {
         const data = await TodoModel.create({
-            task:task
+            task:task,
+            description:description,
+            date:date,
+            status:status,
+            priority:priority
         });
 
         res.json(data);

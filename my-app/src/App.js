@@ -2,7 +2,7 @@ import TodoItem from './components/TodoItem'
 import './App.css';
 
 const App = () => (
-  <TodoItem/>
+  <TodoItem />
 )
 
 export default App;
