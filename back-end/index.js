@@ -2,15 +2,20 @@ const express = require('express')
 const mongoose = require("mongoose");
 const cors = require('cors');
 const TodoModel = require('./model/Todo')
+const dotenv = require('dotenv')
 
 
 
 
 const app = express()
+dotenv.config();
 app.use(cors())
 app.use(express.json())
 
-mongoose.connect("mongodb+srv://chanduMongoDB:Mongo%40253@cluster0.phxtg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
+const port = process.env.PORT || 5000;
+
+const url = process.env.MONGO_URI
+mongoose.connect(url);
 
 app.post('/add',async (req,res)=>{
     const {task,description,date,status,priority} = req.body;
@@ -69,6 +74,6 @@ app.delete('/delete/:id', async (req,res)=>{
 
 
 
-app.listen(8000,()=>{
-    console.log('server is running on 8000')
+app.listen(port,()=>{
+    console.log(`server is running on ${port}`)
 })

@@ -9,10 +9,16 @@ const Todo = () => {
     const [todoDescription,setTodoDescription] = useState('')
     const [todoDate,setTodoDate] = useState('')
     const [selectedStatus, setSelectedStatus] = useState("Pending"); 
-    const [selectedPriority, setSelectedPriority] = useState('');        
-    
+    const [selectedPriority, setSelectedPriority] = useState('');       
+
+
     const onSubmitTodo=(event)=>{
         event.preventDefault()
+        postData();
+    }
+    
+    
+    const postData = () => {
         axios.post('http://localhost:8000/add',{
             task:todoInput,
             description:todoDescription,
@@ -24,6 +30,8 @@ const Todo = () => {
         .then(result => console.log(result))
         .catch(err => console.log(err))
     }
+    
+    
 
     const onChangeTodoInput = (event) => {
         setTodoInput(event.target.value)
