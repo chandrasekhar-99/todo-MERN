@@ -14,8 +14,8 @@ app.use(express.json())
 
 const port = process.env.PORT || 5000;
 
-const url = process.env.MONGO_URI
-mongoose.connect(url);
+mongoose.connect(process.env.MONGO_URI)
+
 
 app.post('/add',async (req,res)=>{
     const {task,description,date,status,priority} = req.body;
@@ -41,6 +41,7 @@ app.get('/get-todo', async (req,res)=>{
 
         
         res.json(data);
+        console.log(data)
       } catch (error) {
         res.status(500).json({ error: error.message });
       }
